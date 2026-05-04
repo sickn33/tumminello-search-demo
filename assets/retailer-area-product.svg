@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="Area Rivenditori Tumminello">
+  <rect width="900" height="520" fill="#fffaf0"/>
+  <rect y="0" width="900" height="62" fill="#f4ead8"/>
+  <rect y="62" width="900" height="44" fill="#cf1730"/>
+  <rect x="78" y="20" width="120" height="42" rx="12" fill="#3a211c"/>
+  <text x="138" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="800" fill="#fff">TUMMINELLO</text>
+  <rect x="300" y="23" width="216" height="26" rx="13" fill="#fff" stroke="#dfcfb6"/>
+  <text x="326" y="41" font-family="Arial, sans-serif" font-size="13" fill="#948675">Cerca</text>
+  <text x="660" y="40" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#cf1730">Area rivenditori</text>
+  <text x="175" y="91" font-family="Arial, sans-serif" font-size="12" font-weight="800" fill="#fff">PRODOTTI</text>
+  <text x="310" y="91" font-family="Arial, sans-serif" font-size="12" font-weight="800" fill="#fff">TRADIZIONALI</text>
+  <text x="462" y="91" font-family="Arial, sans-serif" font-size="12" font-weight="800" fill="#fff">NEWS</text>
+  <text x="570" y="91" font-family="Arial, sans-serif" font-size="12" font-weight="800" fill="#fff">CONTATTI</text>
+  <text x="670" y="91" font-family="Arial, sans-serif" font-size="12" font-weight="800" fill="#fff">SHOP</text>
+  <text x="105" y="154" font-family="Georgia, serif" font-size="33" font-weight="700" fill="#2b2018">Area Rivenditori Tumminello</text>
+  <text x="106" y="180" font-family="Arial, sans-serif" font-size="15" fill="#2b2018">Portale dedicato a negozi gourmet e professionisti.</text>
+  <rect x="100" y="205" width="318" height="150" rx="10" fill="#fff4df" stroke="#e0cda9"/>
+  <text x="122" y="236" font-family="Arial, sans-serif" font-size="23" font-weight="800" fill="#cf1730">Accedi al portale B2B</text>
+  <rect x="122" y="253" width="250" height="24" rx="4" fill="#fff" stroke="#decab0"/>
+  <rect x="122" y="288" width="250" height="24" rx="4" fill="#fff" stroke="#decab0"/>
+  <rect x="122" y="323" width="250" height="26" rx="5" fill="#cf1730"/>
+  <text x="247" y="341" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="800" fill="#fff">RICHIEDI ACCOUNT</text>
+  <rect x="455" y="150" width="340" height="205" rx="12" fill="#f8efe0"/>
+  <text x="478" y="181" font-family="Georgia, serif" font-size="24" fill="#2b2018">Perché acquistare nell'area retailer</text>
+  <g font-family="Arial, sans-serif" fill="#2b2018">
+    <circle cx="500" cy="222" r="22" fill="#fff" stroke="#e0cda9"/>
+    <text x="535" y="214" font-size="16" font-weight="800">Listini dedicati</text>
+    <text x="535" y="236" font-size="12">Condizioni esclusive per negozi premium.</text>
+    <circle cx="500" cy="276" r="22" fill="#fff" stroke="#e0cda9"/>
+    <text x="535" y="268" font-size="16" font-weight="800">Ordini rapidi a catalogo</text>
+    <text x="535" y="290" font-size="12">Assortimento completo e materiali vendita.</text>
+    <circle cx="500" cy="330" r="22" fill="#fff" stroke="#e0cda9"/>
+    <text x="535" y="322" font-size="16" font-weight="800">Visibilità retailer</text>
+    <text x="535" y="344" font-size="12">Schede negozio e traffico qualificato.</text>
+  </g>
+  <text x="450" y="393" text-anchor="middle" font-family="Georgia, serif" font-size="25" fill="#2b2018">Scopri le nostre linee di prodotto</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="92" y="415" width="150" height="56" rx="8" fill="#fff" stroke="#e0cda9"/>
+    <rect x="92" y="415" width="56" height="56" rx="8" fill="#567b3c"/>
+    <text x="160" y="438" font-size="16" font-weight="800" fill="#cf1730">GraniSi</text>
+    <text x="160" y="457" font-size="11" fill="#6c6152">Confezione da 12</text>
+    <rect x="260" y="415" width="150" height="56" rx="8" fill="#fff" stroke="#e0cda9"/>
+    <rect x="260" y="415" width="56" height="56" rx="8" fill="#d99b23"/>
+    <text x="328" y="438" font-size="16" font-weight="800" fill="#cf1730">Duci Siculi</text>
+    <text x="328" y="457" font-size="11" fill="#6c6152">Catalogo retail</text>
+    <rect x="428" y="415" width="150" height="56" rx="8" fill="#fff" stroke="#e0cda9"/>
+    <rect x="428" y="415" width="56" height="56" rx="8" fill="#9d5731"/>
+    <text x="496" y="438" font-size="16" font-weight="800" fill="#cf1730">I Classici</text>
+    <text x="496" y="457" font-size="11" fill="#6c6152">Tradizione</text>
+    <rect x="596" y="415" width="150" height="56" rx="8" fill="#fff" stroke="#e0cda9"/>
+    <rect x="596" y="415" width="56" height="56" rx="8" fill="#164081"/>
+    <text x="664" y="438" font-size="16" font-weight="800" fill="#cf1730">Arcà / Buatte</text>
+    <text x="664" y="457" font-size="11" fill="#6c6152">Box regalo</text>
+  </g>
+  <rect y="485" width="900" height="35" fill="#cf1730"/>
+  <text x="450" y="508" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">Materiali punto vendita · cataloghi · supporto commerciale</text>
+</svg>

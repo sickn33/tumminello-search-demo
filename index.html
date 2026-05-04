@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Demo interattiva Tumminello: ricerca finta, landing e Store Locator per quattro buyer personas."
+    />
+    <title>Tumminello Search Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <main class="page-shell" aria-label="Demo interattiva Tumminello">
+      <section class="stage" aria-live="polite">
+        <div class="background-glow"></div>
+        <img class="tile-strip" src="./assets/tile-strip.png" alt="" />
+
+        <header class="demo-header">
+          <div class="title-block">
+            <div class="overline">Demo search-led · La Sicilia da tenere</div>
+            <h1>Dal bisogno al punto vendita</h1>
+          </div>
+
+          <nav class="stage-nav" aria-label="Step demo">
+            <button class="stage-pill" data-stage="persona" type="button">Persona</button>
+            <button class="stage-pill" data-stage="google" type="button">Cerca</button>
+            <button class="stage-pill" data-stage="serp" type="button">SERP</button>
+            <button class="stage-pill" data-stage="landing" type="button">Landing</button>
+            <button class="stage-pill" data-stage="locator" type="button">Store locator</button>
+          </nav>
+        </header>
+
+        <aside class="control-panel">
+          <div class="persona-grid" id="personaGrid"></div>
+
+          <section class="keyword-card">
+            <div class="keyword-label">Keyword attiva</div>
+            <div class="keyword-text" id="activeKeyword"></div>
+            <p id="activeNarrator"></p>
+          </section>
+
+          <div class="quick-actions">
+            <button class="action-button" data-stage="persona" type="button">Reset</button>
+            <button class="action-button" data-stage="google" type="button">Cerca</button>
+            <button class="action-button" data-stage="landing" type="button">Apri landing</button>
+            <button class="action-button" data-stage="locator" type="button">Trova punto vendita</button>
+          </div>
+
+          <div class="bottom-actions">
+            <button class="back-button" id="backButton" type="button">Indietro</button>
+            <button class="next-button" id="nextButton" type="button">Avanti</button>
+          </div>
+        </aside>
+
+        <section class="phone-wrap" aria-label="Schermata demo">
+          <div class="phone-frame">
+            <div class="phone-screen" id="demoPanel"></div>
+          </div>
+        </section>
+
+        <button class="fullscreen-button" id="fullscreenButton" type="button" title="Apri a schermo intero">
+          Fullscreen
+        </button>
+      </section>
+    </main>
+  </body>
+</html>
