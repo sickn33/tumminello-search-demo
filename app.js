@@ -20,6 +20,9 @@ const personas = {
     keyword: 'biscotti con grani antichi siciliani',
     serpTitle: 'GraniSi Tumminello · biscotti con grani antichi',
     serpSnippet: 'Ingredienti leggibili, fibre e gusto siciliano per una colazione premium.',
+    serpIntent: 'Wellness + ingredienti',
+    serpGoal: 'Portare traffico qualificato alla linea GraniSi',
+    serpReason: 'Match tra query informativa e pagina prodotto ingredient-driven.',
     landingTitle: 'GraniSi: colazione buona, scelta bene',
     landingSubtitle: 'Una landing ingredient-driven per chi legge etichette e cerca valore nutrizionale.',
     productLine: 'GraniSi',
@@ -42,6 +45,9 @@ const personas = {
     keyword: 'biscotti in latta regalo premium',
     serpTitle: 'Buatte del Mito · regalo gourmet riutilizzabile',
     serpSnippet: 'Latte da collezione, biscotti artigianali e packaging da tenere in casa.',
+    serpIntent: 'Regalo premium',
+    serpGoal: 'Convertire il bisogno regalo in bundle e store visit',
+    serpReason: 'La SERP valorizza packaging, riuso e gifting prima del prezzo.',
     landingTitle: 'Un regalo siciliano che resta',
     landingSubtitle: 'La promessa gifting porta Lucrezia da Pinterest e Search verso bundle e retailer premium.',
     productLine: 'Buatte del Mito / Arca',
@@ -64,6 +70,9 @@ const personas = {
     keyword: 'biscotti siciliani artigianali dove comprare',
     serpTitle: 'Tumminello · biscotti siciliani e tradizione delle Madonie',
     serpSnippet: 'Classici, Zuccotti e Duci Siculi: sapori autentici, online o vicino a te.',
+    serpIntent: 'Nostalgia + dove comprare',
+    serpGoal: 'Far comparire Tumminello nel momento della decisione',
+    serpReason: 'La query contiene gia intenzione locale: serve aggancio allo Store Locator.',
     landingTitle: 'La Sicilia da ritrovare',
     landingSubtitle: 'Una pagina heritage rassicura, racconta origine e chiude con il punto vendita.',
     productLine: 'Classici / Duci Siculi',
@@ -86,6 +95,9 @@ const personas = {
     keyword: 'fornitore biscotti premium negozio gourmet',
     serpTitle: 'Tumminello per rivenditori · prodotti premium siciliani',
     serpSnippet: 'Linee regalo, materiali punto vendita e schede retailer ottimizzate per Local SEO.',
+    serpIntent: 'B2B retail',
+    serpGoal: 'Trasformare ricerca professionale in contatto commerciale',
+    serpReason: 'La SERP separa il bisogno B2B dal normale shop consumer.',
     landingTitle: 'Retailer pages che vendono anche in vetrina',
     landingSubtitle: 'Il B2B entra nella stessa infrastruttura: foto, assortimento, contatti e CTA tracciabili.',
     productLine: 'Linea completa retail',
@@ -101,9 +113,10 @@ const personas = {
   },
 };
 
-let personaId = 'lucrezia';
-let stage = 'persona';
-let view = 'home';
+const initialParams = new URLSearchParams(window.location.search);
+let personaId = personas[initialParams.get('persona')] ? initialParams.get('persona') : 'lucrezia';
+let stage = stages.includes(initialParams.get('stage')) ? initialParams.get('stage') : 'persona';
+let view = initialParams.get('stage') || initialParams.get('persona') ? 'demo' : 'home';
 let typeTimer = null;
 
 const personaGrid = document.querySelector('#personaGrid');
@@ -297,21 +310,49 @@ function renderSerpPanel(persona) {
         <div class="serp-logo">${googleLetters}</div>
         <div class="serp-search">${persona.keyword}</div>
       </div>
-      <div class="result-count">Circa 42.000 risultati · Annuncio + risultato organico</div>
-      <article class="result-card">
-        <div class="ad-label">Annuncio · tumminello.it</div>
-        <div class="serp-title">${persona.serpTitle}</div>
-        <div class="serp-snippet">${persona.serpSnippet}</div>
-        <div class="serp-links">
-          <span>Store locator</span>
-          <span>Linee prodotto</span>
-          <span>Shop online</span>
-        </div>
-      </article>
-      <article class="local-result" style="color:${persona.color}">
-        <div class="local-result-title">Dove comprare Tumminello vicino a me</div>
-        <p>Punti vendita, indicazioni, telefono e assortimento disponibile.</p>
-      </article>
+      <div class="serp-meta-row">
+        <div class="result-count">Circa 42.000 risultati · Annuncio + organico + local intent</div>
+        <div class="serp-intent-badge" style="border-color:${persona.color}; color:${persona.color}">${persona.serpIntent}</div>
+      </div>
+
+      <section class="serp-grid">
+        <article class="result-card">
+          <div class="ad-label">
+            <span>Annuncio</span>
+            <strong>tumminello.it</strong>
+          </div>
+          <div class="serp-url">https://www.biscottitumminello.it/${persona.productLine.toLowerCase().replaceAll(' ', '-')}</div>
+          <div class="serp-title">${persona.serpTitle}</div>
+          <div class="serp-snippet">${persona.serpSnippet}</div>
+          <div class="serp-links">
+            <span>Store locator</span>
+            <span>Linea prodotto</span>
+            <span>Shop online</span>
+          </div>
+        </article>
+
+        <aside class="serp-strategy-card" style="--persona-color:${persona.color};">
+          <div class="strategy-kicker">Perche funziona</div>
+          <strong>${persona.serpGoal}</strong>
+          <p>${persona.serpReason}</p>
+        </aside>
+      </section>
+
+      <section class="serp-lower-grid">
+        <article class="organic-card">
+          <div class="organic-label">Risultato organico</div>
+          <div class="organic-title">Biscotti Tumminello · linee siciliane artigianali</div>
+          <p>Contenuto SEO coerente con keyword, prodotto e storia del brand.</p>
+        </article>
+
+        <article class="local-result" style="--persona-color:${persona.color}; color:${persona.color}">
+          <div class="local-pin">⌖</div>
+          <div>
+            <div class="local-result-title">Store Locator Tumminello</div>
+            <p>${persona.retailer} · ${persona.location}<br />Indicazioni, telefono e assortimento disponibile.</p>
+          </div>
+        </article>
+      </section>
     </div>
   `;
 }
