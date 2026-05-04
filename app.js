@@ -195,7 +195,7 @@ function renderPersonaButtons() {
     .map(([id, persona]) => {
       const active = id === personaId ? ' is-active' : '';
       return `
-        <button class="persona-button${active}" style="--person-color:${persona.color}; border-color:${id === personaId ? persona.color : palette.line}" data-persona="${id}" type="button">
+        <button class="persona-button${active}" style="--person-color:${persona.color}; border-color:${id === personaId ? persona.color : palette.line}" data-persona="${id}" type="button" aria-pressed="${id === personaId}" aria-label="${persona.name}, ${persona.tag}">
           <div class="persona-name" style="color:${persona.color}">${persona.name}</div>
           <div class="persona-tag">${persona.tag}</div>
         </button>
@@ -211,6 +211,7 @@ function renderPersonaButtons() {
 function updateButtons() {
   document.querySelectorAll('[data-stage]').forEach((button) => {
     button.classList.toggle('is-active', button.dataset.stage === stage);
+    button.setAttribute('aria-pressed', String(button.dataset.stage === stage));
   });
 
   const index = stages.indexOf(stage);
@@ -438,8 +439,15 @@ fullscreenButton.addEventListener('click', () => {
 
 startDemoButton.addEventListener('click', enterDemo);
 
+document.addEventListener('fullscreenchange', () => {
+  fullscreenButton.setAttribute('aria-pressed', String(Boolean(document.fullscreenElement)));
+  fullscreenButton.textContent = document.fullscreenElement ? 'Esci fullscreen' : 'Fullscreen';
+});
+
 document.addEventListener('keydown', (event) => {
-  if (event.target instanceof HTMLElement && event.target.matches('input, textarea, button')) return;
+  const target = event.target instanceof HTMLElement ? event.target : null;
+  if (target?.matches('input, textarea, select, [contenteditable="true"]')) return;
+  if (target?.matches('button') && [' ', 'Enter'].includes(event.key)) return;
 
   if (['ArrowRight', 'ArrowDown', 'PageDown', ' '].includes(event.key)) {
     event.preventDefault();
@@ -453,12 +461,6 @@ document.addEventListener('keydown', (event) => {
   } else if (event.key.toLowerCase() === 'f') {
     event.preventDefault();
     fullscreenButton.click();
-  }
-});
-
-document.addEventListener('click', (event) => {
-  if (event.target instanceof Element && event.target.closest('#startDemoButton')) {
-    enterDemo();
   }
 });
 
