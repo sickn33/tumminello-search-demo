@@ -234,8 +234,9 @@ function renderPersonaPanel(persona) {
 }
 
 function renderGooglePanel(persona) {
+  const compactClass = persona.keyword.length > 37 ? ' is-compact' : '';
   return `
-    <div class="google-panel panel-enter">
+    <div class="google-panel panel-enter${compactClass}">
       <div class="google-logo">${googleLetters}</div>
       <div class="search-box">
         <span class="search-icon">⌕</span>
