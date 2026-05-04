@@ -82,7 +82,7 @@ button {
   inset: 0;
   z-index: 5;
   display: none;
-  padding: 74px 86px 118px;
+  padding: 58px 86px 118px;
   background:
     radial-gradient(circle at 76% 20%, rgba(217, 155, 35, 0.26), transparent 24%),
     linear-gradient(180deg, rgba(255, 250, 240, 0.96), rgba(246, 240, 223, 0.96));
@@ -101,12 +101,12 @@ body.is-home .phone-wrap {
 .home-copy {
   position: absolute;
   left: 86px;
-  top: 62px;
-  width: 805px;
+  top: 46px;
+  width: 780px;
 }
 
 .home-brand {
-  width: 354px;
+  width: 286px;
   aspect-ratio: 394 / 216;
   display: grid;
   place-items: center;
@@ -122,7 +122,7 @@ body.is-home .phone-wrap {
 }
 
 .home-overline {
-  margin-top: 24px;
+  margin-top: 20px;
   color: var(--red);
   font-size: 26px;
   font-weight: 950;
@@ -130,37 +130,66 @@ body.is-home .phone-wrap {
 }
 
 .home-copy h2 {
-  margin: 22px 0 0;
+  margin: 18px 0 0;
   color: var(--text);
   font-family: var(--display);
-  font-size: 88px;
-  line-height: 0.95;
+  font-size: 78px;
+  line-height: 0.92;
   font-weight: 700;
-  max-width: 780px;
+  max-width: 720px;
 }
 
 .home-copy p {
-  margin: 28px 0 0;
-  max-width: 760px;
+  margin: 22px 0 0;
+  max-width: 720px;
   color: var(--muted);
+  font-size: 23px;
+  line-height: 1.18;
+}
+
+.home-thesis {
+  margin-top: 22px;
+  max-width: 720px;
+  border: 3px solid var(--red);
+  border-radius: 22px;
+  background: #fff4e8;
+  padding: 19px 24px 21px;
+  box-shadow: 0 18px 48px rgba(64, 44, 24, 0.1);
+}
+
+.home-thesis span {
+  display: block;
+  color: var(--red);
+  font-size: 19px;
+  font-weight: 950;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.home-thesis strong {
+  display: block;
+  margin-top: 12px;
+  color: var(--text);
   font-size: 24px;
-  line-height: 1.16;
+  line-height: 1.08;
+  font-weight: 950;
 }
 
 .home-actions {
   position: absolute;
-  right: -1010px;
-  top: 0;
+  left: 330px;
+  top: 45px;
   z-index: 4;
   display: flex;
-  align-items: center;
-  gap: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 9px;
   margin-top: 0;
 }
 
 .home-primary {
-  min-width: 330px;
-  height: 72px;
+  min-width: 260px;
+  height: 64px;
   border: 0;
   border-radius: 16px;
   background: var(--red);
@@ -179,10 +208,10 @@ body.is-home .phone-wrap {
 }
 
 .home-note {
-  max-width: 230px;
+  max-width: 340px;
   color: var(--text);
-  font-size: 18px;
-  line-height: 1.2;
+  font-size: 17px;
+  line-height: 1.08;
   font-weight: 900;
 }
 
@@ -246,10 +275,10 @@ body.is-home .phone-wrap {
 
 .home-stat-card {
   position: absolute;
-  left: 0;
-  bottom: 50px;
-  width: 360px;
-  min-height: 210px;
+  left: 18px;
+  bottom: 42px;
+  width: 350px;
+  min-height: 198px;
   border: 3px solid var(--red);
   border-radius: 26px;
   background: #fff2e8;
@@ -261,7 +290,7 @@ body.is-home .phone-wrap {
   display: block;
   color: var(--red);
   font-family: var(--display);
-  font-size: 92px;
+  font-size: 86px;
   line-height: 0.9;
   font-weight: 900;
 }
@@ -269,8 +298,38 @@ body.is-home .phone-wrap {
 .home-stat-card p {
   margin: 18px 0 0;
   color: var(--text);
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.16;
+  font-weight: 900;
+}
+
+.home-proof-card {
+  position: absolute;
+  right: 36px;
+  top: 8px;
+  width: 308px;
+  min-height: 154px;
+  border: 3px solid var(--green);
+  border-radius: 24px;
+  background: #eef4e8;
+  padding: 22px 24px;
+  box-shadow: 0 18px 46px rgba(64, 44, 24, 0.12);
+}
+
+.home-proof-card span {
+  display: block;
+  color: var(--green);
+  font-family: var(--display);
+  font-size: 62px;
+  line-height: 0.9;
+  font-weight: 900;
+}
+
+.home-proof-card p {
+  margin: 14px 0 0;
+  color: var(--text);
+  font-size: 18px;
+  line-height: 1.14;
   font-weight: 900;
 }
 
@@ -312,12 +371,23 @@ body.is-home .phone-wrap {
 
 .home-pill {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  gap: 7px;
   color: #fff;
   min-height: 102px;
   font-size: 22px;
   line-height: 1.08;
   font-weight: 950;
+}
+
+.home-pill small {
+  display: block;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 850;
 }
 
 .home-pill-red {
