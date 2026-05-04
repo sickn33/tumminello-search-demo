@@ -122,25 +122,40 @@ body.is-home .phone-wrap {
 }
 
 .home-overline {
-  margin-top: 20px;
+  margin-top: 18px;
   color: var(--red);
-  font-size: 26px;
+  font-size: 25px;
   font-weight: 950;
   text-transform: uppercase;
 }
 
 .home-copy h2 {
-  margin: 18px 0 0;
+  margin: 14px 0 0;
   color: var(--text);
   font-family: var(--display);
-  font-size: 78px;
-  line-height: 0.92;
   font-weight: 700;
-  max-width: 720px;
+  max-width: 760px;
+}
+
+.home-title-main,
+.home-title-sub {
+  display: block;
+}
+
+.home-title-main {
+  font-size: 88px;
+  line-height: 0.9;
+}
+
+.home-title-sub {
+  margin-top: 4px;
+  max-width: 660px;
+  font-size: 62px;
+  line-height: 0.94;
 }
 
 .home-copy p {
-  margin: 22px 0 0;
+  margin: 18px 0 0;
   max-width: 720px;
   color: var(--muted);
   font-size: 23px;
