@@ -782,9 +782,8 @@ h1 {
 .serp-panel {
   position: absolute;
   inset: 0;
-  padding: 34px 42px 38px;
-  background:
-    linear-gradient(180deg, #fff 0 17%, #fffdf8 17% 100%);
+  padding: 30px 48px 38px;
+  background: #fff;
 }
 
 .serp-top {
@@ -802,8 +801,8 @@ h1 {
 
 .serp-search {
   flex: 1;
-  min-height: 62px;
-  border: 2px solid #dfe1e5;
+  min-height: 58px;
+  border: 1px solid #dfe1e5;
   border-radius: 31px;
   display: flex;
   align-items: center;
@@ -815,69 +814,81 @@ h1 {
   box-shadow: 0 8px 22px rgba(32, 33, 36, 0.1);
 }
 
-.serp-meta-row {
+.serp-tabs {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 18px;
-  margin-top: 30px;
+  gap: 24px;
+  margin: 22px 0 0 152px;
+  border-bottom: 1px solid #ebedef;
+  color: #5f6368;
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.serp-tabs span {
+  padding-bottom: 13px;
+}
+
+.serp-tabs .is-selected {
+  color: #1a73e8;
+  border-bottom: 3px solid var(--persona-color);
 }
 
 .result-count {
+  margin: 16px 0 0 152px;
   color: #70757a;
   font-size: 18px;
   font-weight: 650;
 }
 
-.serp-intent-badge {
-  min-width: 230px;
-  border: 2px solid currentColor;
-  border-radius: 999px;
-  padding: 10px 18px;
-  text-align: center;
-  font-size: 18px;
-  line-height: 1;
-  font-weight: 950;
-  background: #fff;
-}
-
-.serp-grid {
-  display: grid;
-  grid-template-columns: 1.56fr 0.84fr;
-  gap: 22px;
-  margin-top: 22px;
+.serp-results {
+  margin-left: 152px;
+  width: calc(100% - 154px);
+  max-width: 735px;
+  padding-top: 18px;
 }
 
 .result-card {
-  min-height: 294px;
-  padding: 28px 30px;
-  border: 3px solid #e8ddc6;
-  border-radius: 24px;
-  background: #fffdf8;
-  box-shadow: 0 18px 38px rgba(64, 44, 24, 0.1);
+  padding: 14px 0 18px;
+  border-bottom: 1px solid #eef0f2;
+  background: #fff;
+}
+
+.result-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.favicon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1;
+  font-weight: 950;
+}
+
+.favicon.organic {
+  background: var(--red);
 }
 
 .ad-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   color: #202124;
   font-size: 18px;
   font-weight: 850;
 }
 
 .ad-label span {
-  border-radius: 7px;
-  background: #f5ead6;
-  color: var(--text);
-  padding: 5px 9px;
-  font-size: 15px;
-  line-height: 1;
-  text-transform: uppercase;
+  color: #202124;
+  font-weight: 950;
 }
 
 .serp-url {
-  margin-top: 15px;
+  margin-top: 2px;
   color: #188038;
   font-size: 17px;
   line-height: 1.15;
@@ -885,127 +896,132 @@ h1 {
 }
 
 .serp-title {
-  margin-top: 10px;
+  margin-top: 12px;
   color: #1a0dab;
-  font-size: 34px;
-  line-height: 1.1;
-  font-weight: 820;
+  font-size: 31px;
+  line-height: 1.12;
+  font-weight: 760;
 }
 
 .serp-snippet {
-  margin-top: 12px;
+  margin-top: 9px;
   color: #4d5156;
-  font-size: 22px;
-  line-height: 1.26;
+  font-size: 20px;
+  line-height: 1.28;
 }
 
 .serp-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 20px;
+  gap: 16px;
+  margin-top: 13px;
   color: #1a0dab;
   font-size: 18px;
   font-weight: 850;
 }
 
 .serp-links span {
-  border-radius: 999px;
-  background: #f1f5ff;
-  padding: 8px 12px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.serp-strategy-card {
-  min-height: 294px;
-  border: 3px solid var(--persona-color);
-  border-radius: 24px;
-  background: linear-gradient(180deg, color-mix(in srgb, var(--persona-color) 10%, #fff), #fffaf0);
-  padding: 28px;
-  color: var(--text);
-}
-
-.strategy-kicker,
 .organic-label {
-  color: var(--red);
+  color: #202124;
   font-size: 18px;
-  line-height: 1;
-  font-weight: 950;
-  text-transform: uppercase;
-}
-
-.serp-strategy-card strong {
-  display: block;
-  margin-top: 20px;
-  font-size: 30px;
-  line-height: 1.12;
-  font-weight: 950;
-}
-
-.serp-strategy-card p {
-  margin: 18px 0 0;
-  color: var(--muted);
-  font-size: 20px;
-  line-height: 1.24;
-  font-weight: 700;
-}
-
-.serp-lower-grid {
-  display: grid;
-  grid-template-columns: 0.92fr 1.08fr;
-  gap: 22px;
-  margin-top: 22px;
-}
-
-.organic-card {
-  min-height: 150px;
-  border: 2px solid #e8ddc6;
-  border-radius: 22px;
-  background: #fff;
-  padding: 24px 26px;
+  font-weight: 850;
 }
 
 .organic-title {
   margin-top: 12px;
   color: #1a0dab;
-  font-size: 24px;
+  font-size: 27px;
   line-height: 1.12;
-  font-weight: 850;
+  font-weight: 760;
 }
 
 .organic-card p {
-  margin: 10px 0 0;
+  margin: 9px 0 0;
   color: #4d5156;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.22;
+}
+
+.local-pack {
+  margin-top: 2px;
+  padding: 18px 0 0;
+  background: #fff;
+}
+
+.local-pack-header {
+  display: grid;
+  grid-template-columns: 1fr 190px;
+  align-items: center;
+  gap: 18px;
+  padding: 16px 0 14px;
+}
+
+.local-pack-title {
+  color: #202124;
+  font-size: 26px;
+  line-height: 1.08;
+  font-weight: 850;
+}
+
+.local-pack-header p {
+  margin: 7px 0 0;
+  color: #70757a;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.mini-map {
+  position: relative;
+  height: 84px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #d7dce2;
+  background:
+    linear-gradient(135deg, rgba(66, 133, 244, 0.2), transparent 45%),
+    linear-gradient(45deg, #e7f0fe 0 35%, #f6ead7 35% 48%, #dcebd6 48% 72%, #e7f0fe 72%);
+}
+
+.mini-map span {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+  transform: translate(-50%, -50%);
 }
 
 .local-result {
   display: grid;
-  grid-template-columns: 50px 1fr;
+  grid-template-columns: 44px 1fr;
   gap: 16px;
-  min-height: 150px;
-  padding: 24px 26px;
-  border: 2px solid color-mix(in srgb, currentColor 36%, #e8ddc6);
-  border-left: 9px solid currentColor;
-  border-radius: 22px;
-  background: #f8fafd;
+  padding: 14px 16px;
+  border: 1px solid #dfe1e5;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 5px 12px rgba(32, 33, 36, 0.07);
 }
 
 .local-pin {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--persona-color);
   color: #fff;
-  font-size: 28px;
+  font-size: 23px;
   line-height: 1;
 }
 
 .local-result-title {
   color: #1a0dab;
-  font-size: 25px;
+  font-size: 22px;
   line-height: 1.08;
   font-weight: 850;
 }
@@ -1013,7 +1029,7 @@ h1 {
 .local-result p {
   margin: 10px 0 0;
   color: #4d5156;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.24;
 }
 

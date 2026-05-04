@@ -310,18 +310,24 @@ function renderSerpPanel(persona) {
         <div class="serp-logo">${googleLetters}</div>
         <div class="serp-search">${persona.keyword}</div>
       </div>
-      <div class="serp-meta-row">
-        <div class="result-count">Circa 42.000 risultati · Annuncio + organico + local intent</div>
-        <div class="serp-intent-badge" style="border-color:${persona.color}; color:${persona.color}">${persona.serpIntent}</div>
+      <div class="serp-tabs" style="--persona-color:${persona.color}">
+        <span class="is-selected">Tutto</span>
+        <span>Immagini</span>
+        <span>Shopping</span>
+        <span>Maps</span>
+        <span>News</span>
       </div>
+      <div class="result-count">Circa 42.000 risultati · Ricerca simulata</div>
 
-      <section class="serp-grid">
-        <article class="result-card">
-          <div class="ad-label">
-            <span>Annuncio</span>
-            <strong>tumminello.it</strong>
+      <div class="serp-results">
+        <article class="result-card result-ad">
+          <div class="result-row">
+            <div class="favicon" style="background:${persona.color}">T</div>
+            <div>
+              <div class="ad-label"><span>Annuncio</span> biscottitumminello.it</div>
+              <div class="serp-url">https://www.biscottitumminello.it/${persona.productLine.toLowerCase().replaceAll(' ', '-')}</div>
+            </div>
           </div>
-          <div class="serp-url">https://www.biscottitumminello.it/${persona.productLine.toLowerCase().replaceAll(' ', '-')}</div>
           <div class="serp-title">${persona.serpTitle}</div>
           <div class="serp-snippet">${persona.serpSnippet}</div>
           <div class="serp-links">
@@ -331,28 +337,39 @@ function renderSerpPanel(persona) {
           </div>
         </article>
 
-        <aside class="serp-strategy-card" style="--persona-color:${persona.color};">
-          <div class="strategy-kicker">Perche funziona</div>
-          <strong>${persona.serpGoal}</strong>
-          <p>${persona.serpReason}</p>
-        </aside>
-      </section>
-
-      <section class="serp-lower-grid">
-        <article class="organic-card">
-          <div class="organic-label">Risultato organico</div>
-          <div class="organic-title">Biscotti Tumminello · linee siciliane artigianali</div>
-          <p>Contenuto SEO coerente con keyword, prodotto e storia del brand.</p>
-        </article>
-
-        <article class="local-result" style="--persona-color:${persona.color}; color:${persona.color}">
-          <div class="local-pin">⌖</div>
-          <div>
-            <div class="local-result-title">Store Locator Tumminello</div>
-            <p>${persona.retailer} · ${persona.location}<br />Indicazioni, telefono e assortimento disponibile.</p>
+        <article class="result-card organic-card">
+          <div class="result-row">
+            <div class="favicon organic">T</div>
+            <div>
+              <div class="organic-label">Biscotti Tumminello</div>
+              <div class="serp-url">https://www.biscottitumminello.it</div>
+            </div>
           </div>
+          <div class="organic-title">Biscotti Tumminello · linee siciliane artigianali</div>
+          <p>Prodotti, storia del brand, ricette siciliane e acquisto online.</p>
         </article>
-      </section>
+
+        <section class="local-pack" style="--persona-color:${persona.color}">
+          <div class="local-pack-header">
+            <div>
+              <div class="local-pack-title">Punti vendita Tumminello</div>
+              <p>Risultati vicino a te · Store Locator proposto</p>
+            </div>
+            <div class="mini-map">
+              <span style="left:62%; top:32%"></span>
+              <span style="left:42%; top:58%"></span>
+              <span style="left:72%; top:68%"></span>
+            </div>
+          </div>
+          <article class="local-result">
+            <div class="local-pin">⌖</div>
+            <div>
+              <div class="local-result-title">${persona.retailer}</div>
+              <p>${persona.location} · Indicazioni, telefono e assortimento disponibile.</p>
+            </div>
+          </article>
+        </section>
+      </div>
     </div>
   `;
 }
