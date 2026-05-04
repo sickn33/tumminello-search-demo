@@ -101,19 +101,17 @@ body.is-home .phone-wrap {
 .home-copy {
   position: absolute;
   left: 86px;
-  top: 82px;
+  top: 62px;
   width: 805px;
 }
 
 .home-brand {
-  width: 312px;
-  height: 112px;
+  width: 354px;
+  aspect-ratio: 394 / 216;
   display: grid;
   place-items: center;
-  border-radius: 24px;
-  overflow: hidden;
-  background: #f6f0df;
-  box-shadow: 0 18px 40px rgba(58, 36, 31, 0.13);
+  border-radius: 28px;
+  background: transparent;
 }
 
 .home-brand img {
@@ -124,7 +122,7 @@ body.is-home .phone-wrap {
 }
 
 .home-overline {
-  margin-top: 34px;
+  margin-top: 24px;
   color: var(--red);
   font-size: 26px;
   font-weight: 950;
@@ -143,10 +141,10 @@ body.is-home .phone-wrap {
 
 .home-copy p {
   margin: 28px 0 0;
-  max-width: 650px;
+  max-width: 760px;
   color: var(--muted);
-  font-size: 26px;
-  line-height: 1.23;
+  font-size: 24px;
+  line-height: 1.16;
 }
 
 .home-actions {
