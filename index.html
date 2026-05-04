@@ -8,14 +8,59 @@
       content="Demo interattiva Tumminello: ricerca finta, landing e Store Locator per quattro buyer personas."
     />
     <title>Tumminello Search Demo</title>
-    <link rel="stylesheet" href="./styles.css?v=20260504-compact" />
-    <script defer src="./app.js?v=20260504-compact"></script>
+    <link rel="stylesheet" href="./styles.css?v=20260504-home2" />
+    <script defer src="./app.js?v=20260504-home2"></script>
   </head>
   <body>
     <main class="page-shell" aria-label="Demo interattiva Tumminello">
       <section class="stage" aria-live="polite">
         <div class="background-glow"></div>
         <img class="tile-strip" src="./assets/tile-strip.png" alt="" />
+
+        <section class="home-page" id="homePage" aria-label="Introduzione strategica">
+          <div class="home-copy">
+            <div class="home-brand">TUMMINELLO</div>
+            <div class="home-overline">Castelbuono, Madonie · dal 1977</div>
+            <h2>Biscotti da trovare, scegliere e tenere.</h2>
+            <p>
+              Tumminello unisce pasticceria artigianale siciliana, ingredienti del territorio
+              e design contemporaneo. La strategia digitale trasforma questo valore in domanda
+              qualificata, passaggio al punto vendita e relazione misurabile.
+            </p>
+
+            <div class="home-actions">
+              <button class="home-primary" id="startDemoButton" onclick="window.tumminelloEnterDemo?.()" type="button">Avvia demo search-led</button>
+              <div class="home-note">SEO/SEM, Store Locator, Boutique Digitale, CRM</div>
+            </div>
+          </div>
+
+          <div class="home-visual">
+            <div class="home-product home-product-main">
+              <img src="./assets/buatte-product.png" alt="Buatta Tumminello" />
+            </div>
+            <div class="home-product home-product-small home-product-top">
+              <img src="./assets/granisi-product.png" alt="Confezione GraniSi Tumminello" />
+            </div>
+            <div class="home-product home-product-small home-product-bottom">
+              <img src="./assets/zuccotti-product.png" alt="Confezione Zuccotti Tumminello" />
+            </div>
+            <div class="home-stat-card">
+              <span>73%</span>
+              <p>non conosce il brand: serve intercettare il bisogno prima della scelta.</p>
+            </div>
+          </div>
+
+          <div class="home-strategy">
+            <div class="home-strategy-title">
+              <span>Fulcro strategico</span>
+              <strong>Rendere Tumminello più ricercabile, acquistabile e misurabile.</strong>
+            </div>
+            <div class="home-pill home-pill-red">Acquisizione qualificata</div>
+            <div class="home-pill home-pill-gold">Ponte omnichannel</div>
+            <div class="home-pill home-pill-green">Conversione premium</div>
+            <div class="home-pill home-pill-blue">Relazione e retention</div>
+          </div>
+        </section>
 
         <header class="demo-header">
           <div class="title-block">

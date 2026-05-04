@@ -103,6 +103,7 @@ const personas = {
 
 let personaId = 'lucrezia';
 let stage = 'persona';
+let view = 'home';
 let typeTimer = null;
 
 const personaGrid = document.querySelector('#personaGrid');
@@ -112,6 +113,7 @@ const demoPanel = document.querySelector('#demoPanel');
 const backButton = document.querySelector('#backButton');
 const nextButton = document.querySelector('#nextButton');
 const fullscreenButton = document.querySelector('#fullscreenButton');
+const startDemoButton = document.querySelector('#startDemoButton');
 const stageElement = document.querySelector('.stage');
 
 const googleLetters = `
@@ -122,30 +124,45 @@ function currentPersona() {
   return personas[personaId];
 }
 
+function enterDemo() {
+  view = 'demo';
+  render();
+}
+
+window.tumminelloEnterDemo = enterDemo;
+
 function setStage(nextStage) {
+  if (view === 'home') view = 'demo';
   stage = nextStage;
   render();
 }
 
 function setPersona(nextPersonaId) {
+  if (view === 'home') view = 'demo';
   personaId = nextPersonaId;
   stage = 'persona';
   render();
 }
 
 function advance() {
+  if (view === 'home') {
+    enterDemo();
+    return;
+  }
   const index = stages.indexOf(stage);
   stage = index === stages.length - 1 ? 'persona' : stages[index + 1];
   render();
 }
 
 function retreat() {
+  if (view === 'home') return;
   const index = stages.indexOf(stage);
   stage = index === 0 ? 'persona' : stages[index - 1];
   render();
 }
 
 function render() {
+  document.body.classList.toggle('is-home', view === 'home');
   const persona = currentPersona();
   document.documentElement.style.setProperty('--active', persona.color);
   activeKeyword.textContent = `"${persona.keyword}"`;
@@ -361,6 +378,8 @@ fullscreenButton.addEventListener('click', () => {
   document.documentElement.requestFullscreen?.().catch(() => {});
 });
 
+startDemoButton.addEventListener('click', enterDemo);
+
 document.addEventListener('keydown', (event) => {
   if (event.target instanceof HTMLElement && event.target.matches('input, textarea, button')) return;
 
@@ -376,6 +395,12 @@ document.addEventListener('keydown', (event) => {
   } else if (event.key.toLowerCase() === 'f') {
     event.preventDefault();
     fullscreenButton.click();
+  }
+});
+
+document.addEventListener('click', (event) => {
+  if (event.target instanceof Element && event.target.closest('#startDemoButton')) {
+    enterDemo();
   }
 });
 
