@@ -34,6 +34,7 @@ const personas = {
     retailer: 'Emporio del Gusto',
     location: 'Torino · 1,4 km',
     narrator: 'Search intercetta il bisogno wellness e lo trasforma in visita qualificata.',
+    strategicHook: 'La search intercetta un bisogno salutistico e lo porta verso GraniSi.',
     chips: ['ingredienti', 'wellness', 'CRM'],
   },
   lucrezia: {
@@ -59,6 +60,7 @@ const personas = {
     retailer: 'La Dispensa Etnea',
     location: 'Milano · 900 m',
     narrator: 'Il packaging diventa motivo di click, regalo e passaggio in negozio.',
+    strategicHook: 'La query regalo trasforma il packaging in motivo di scelta e acquisto.',
     chips: ['gifting', 'design', 'bundle'],
   },
   vito: {
@@ -84,6 +86,7 @@ const personas = {
     retailer: 'Bottega Sicula',
     location: 'Palermo · 2,1 km',
     narrator: 'La nostalgia entra come emozione e arriva a una scelta concreta.',
+    strategicHook: 'La nostalgia viene agganciata da una ricerca di autenticita siciliana.',
     chips: ['Sicilia', 'tradizione', 'local SEO'],
   },
   carmela: {
@@ -109,6 +112,7 @@ const personas = {
     retailer: 'Alimentari Carmela',
     location: 'Ragusa · retailer partner',
     narrator: 'Il digitale supporta il sell-out dei negozi senza snaturare il canale premium.',
+    strategicHook: 'La ricerca B2B porta a una proposta retail concreta e misurabile.',
     chips: ['B2B', 'retail kit', 'vetrina'],
   },
 };
@@ -256,8 +260,8 @@ function renderPersonaPanel(persona) {
           <div class="info-text">${persona.narrator}</div>
         </div>
         <div class="info-box">
-          <div class="info-label" style="color:${palette.red}">Percorso demo</div>
-          <div class="info-text">bisogno, keyword, landing, Store Locator.</div>
+          <div class="info-label" style="color:${palette.red}">Aggancio strategico</div>
+          <div class="info-text">${persona.strategicHook}</div>
         </div>
       </div>
     </div>
