@@ -111,8 +111,8 @@ const personas = {
     cta: 'Richiedi kit punto vendita',
     retailer: 'Alimentari Carmela',
     location: 'Ragusa · retailer partner',
-    narrator: 'Il digitale supporta il sell-out dei negozi senza snaturare il canale premium.',
-    strategicHook: 'La ricerca B2B porta a una proposta retail concreta e misurabile.',
+    narrator: 'Per Carmela il valore non e trovare un negozio: e diventare il negozio trovato.',
+    strategicHook: 'La ricerca B2B porta a una pagina retailer che genera visibilita, contatti e sell-out.',
     chips: ['B2B', 'retail kit', 'vetrina'],
   },
 };
@@ -223,6 +223,9 @@ function updateButtons() {
   nextButton.textContent = index === stages.length - 1 ? 'Ripeti demo' : 'Avanti';
   nextButton.style.background = currentPersona().color;
   document.querySelector('.keyword-label').style.color = currentPersona().color;
+  document.querySelectorAll('.quick-actions [data-stage="locator"]').forEach((button) => {
+    button.textContent = personaId === 'carmela' ? 'Scheda retailer' : 'Trova punto vendita';
+  });
 }
 
 function renderPanel() {
@@ -309,6 +312,18 @@ function animateKeyword(keyword) {
 }
 
 function renderSerpPanel(persona) {
+  const isCarmela = persona.name === 'Carmela';
+  const sitelinks = isCarmela
+    ? ['Area rivenditori', 'Catalogo B2B', 'Kit punto vendita']
+    : ['Store locator', 'Linea prodotto', 'Shop online'];
+  const localPackTitle = isCarmela ? 'Retailer partner Tumminello' : 'Punti vendita Tumminello';
+  const localPackSubtitle = isCarmela
+    ? 'Visibilita locale per chi entra nella rete retail'
+    : 'Risultati vicino a te · Store Locator proposto';
+  const localResultCopy = isCarmela
+    ? 'Scheda negozio, assortimento, contatti e materiali vetrina collegati alla ricerca.'
+    : 'Indicazioni, telefono e assortimento disponibile.';
+
   return `
     <div class="serp-panel panel-enter">
       <div class="serp-top">
@@ -336,9 +351,7 @@ function renderSerpPanel(persona) {
           <div class="serp-title">${persona.serpTitle}</div>
           <div class="serp-snippet">${persona.serpSnippet}</div>
           <div class="serp-links">
-            <span>Store locator</span>
-            <span>Linea prodotto</span>
-            <span>Shop online</span>
+            ${sitelinks.map((link) => `<span>${link}</span>`).join('')}
           </div>
         </article>
 
@@ -357,8 +370,8 @@ function renderSerpPanel(persona) {
         <section class="local-pack" style="--persona-color:${persona.color}">
           <div class="local-pack-header">
             <div>
-              <div class="local-pack-title">Punti vendita Tumminello</div>
-              <p>Risultati vicino a te · Store Locator proposto</p>
+              <div class="local-pack-title">${localPackTitle}</div>
+              <p>${localPackSubtitle}</p>
             </div>
             <div class="mini-map">
               <span style="left:62%; top:32%"></span>
@@ -370,7 +383,7 @@ function renderSerpPanel(persona) {
             <div class="local-pin">⌖</div>
             <div>
               <div class="local-result-title">${persona.retailer}</div>
-              <p>${persona.location} · Indicazioni, telefono e assortimento disponibile.</p>
+              <p>${persona.location} · ${localResultCopy}</p>
             </div>
           </article>
         </section>
@@ -419,9 +432,64 @@ function renderLandingPanel(persona) {
 }
 
 function renderLocatorPanel() {
+  if (currentPersona().name === 'Carmela') {
+    return renderRetailerPanel();
+  }
+
   return `
     <div class="locator-panel panel-enter">
       <img src="./assets/store-locator-page.png" alt="Store Locator Tumminello" />
+    </div>
+  `;
+}
+
+function renderRetailerPanel() {
+  return `
+    <div class="retailer-panel panel-enter">
+      <div class="retailer-topbar">
+        <div class="retailer-logo">TUMMINELLO</div>
+        <div class="retailer-nav">AREA RIVENDITORI</div>
+        <div class="retailer-nav">CATALOGO B2B</div>
+        <div class="retailer-nav last">VISIBILITA RETAIL</div>
+      </div>
+
+      <section class="retailer-hero">
+        <div class="retailer-copy">
+          <div class="retailer-kicker">Scheda retailer partner</div>
+          <h3>Alimentari Carmela</h3>
+          <p>Il negozio entra nell'ecosistema Tumminello: assortimento, contatti e motivi di visita diventano trovabili online.</p>
+        </div>
+        <figure class="retailer-photo">
+          <img src="./assets/carmela-retailer-display.png" alt="Display premium Tumminello per Alimentari Carmela" />
+        </figure>
+      </section>
+
+      <section class="retailer-grid">
+        <article class="retailer-card highlighted">
+          <span>Obiettivo</span>
+          <strong>Diventare il negozio trovato</strong>
+          <p>Per Carmela il valore non e cercare un punto vendita: e ricevere traffico qualificato verso il suo.</p>
+        </article>
+        <article class="retailer-card">
+          <span>Assortimento</span>
+          <strong>GraniSi, Buatte, Arca, Classici</strong>
+          <p>Linee selezionate per vetrina, gifting e acquisto premium.</p>
+        </article>
+        <article class="retailer-card">
+          <span>Azioni B2B</span>
+          <strong>Kit espositivo + catalogo</strong>
+          <p>Materiali per scaffale, schede prodotto e supporto commerciale.</p>
+        </article>
+      </section>
+
+      <section class="retailer-actions">
+        <button type="button">Richiedi kit punto vendita</button>
+        <button type="button">Scarica catalogo B2B</button>
+        <div class="retailer-measure">
+          <span>Misurazione</span>
+          Click, chiamate, richieste e visite al negozio.
+        </div>
+      </section>
     </div>
   `;
 }
