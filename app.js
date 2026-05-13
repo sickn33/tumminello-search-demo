@@ -18,23 +18,23 @@ const personas = {
     soft: '#eef4e8',
     line: 'Voglio qualcosa di buono, ma voglio capire cosa sto mangiando.',
     keyword: 'biscotti salutari premium',
-    serpTitle: 'GraniSi Tumminello · biscotti con grani antichi',
+    serpTitle: 'GraniSì Tumminello · biscotti con grani antichi',
     serpSnippet: 'Ingredienti leggibili, fibre e gusto siciliano per una colazione premium.',
     serpIntent: 'Wellness + ingredienti',
-    serpGoal: 'Portare traffico qualificato alla linea GraniSi',
+    serpGoal: 'Portare traffico qualificato alla linea GraniSì',
     serpReason: 'Match tra query informativa e pagina prodotto ingredient-driven.',
-    landingTitle: 'GraniSi: colazione buona, scelta bene',
+    landingTitle: 'GraniSì: colazione buona, scelta bene',
     landingSubtitle: 'Una landing ingredient-driven per chi legge etichette e cerca valore nutrizionale.',
-    productLine: 'GraniSi',
+    productLine: 'GraniSì',
     productImage: './assets/granisi-product.png',
-    productAlt: 'Confezione GraniSi al Cioccolato di Modica IGP',
+    productAlt: 'Confezione GraniSì al Cioccolato di Modica IGP',
     productFit: 'cover',
     productPosition: '50% 47%',
-    cta: 'Scopri la linea GraniSi',
+    cta: 'Scopri la linea GraniSì',
     retailer: 'Emporio del Gusto',
     location: 'Torino · 1,4 km',
     narrator: 'Search intercetta il bisogno wellness e lo trasforma in visita qualificata.',
-    strategicHook: 'La search intercetta un bisogno salutistico e lo porta verso GraniSi.',
+    strategicHook: 'La search intercetta un bisogno salutistico e lo porta verso GraniSì.',
     chips: ['ingredienti', 'wellness', 'CRM'],
   },
   lucrezia: {
@@ -51,7 +51,7 @@ const personas = {
     serpReason: 'La SERP valorizza packaging, riuso e gifting prima del prezzo.',
     landingTitle: 'Un regalo siciliano che resta',
     landingSubtitle: 'La promessa gifting porta Lucrezia da Pinterest e Search verso bundle e retailer premium.',
-    productLine: 'Buatte del Mito / Arca',
+    productLine: 'Buatte del Mito / Arcà',
     productImage: './assets/buatte-product.png',
     productAlt: 'Buatte del Mito Tumminello con dolcini mandorle pistacchio e cocco',
     productFit: 'cover',
@@ -74,7 +74,7 @@ const personas = {
     serpSnippet: 'Classici, Zuccotti e Duci Siculi: sapori autentici, online o vicino a te.',
     serpIntent: 'Nostalgia + dove comprare',
     serpGoal: 'Far comparire Tumminello nel momento della decisione',
-    serpReason: 'La query contiene gia intenzione locale: serve aggancio allo Store Locator.',
+    serpReason: 'La query contiene già intenzione locale: serve aggancio allo Store Locator.',
     landingTitle: 'La Sicilia da ritrovare',
     landingSubtitle: 'Una pagina heritage rassicura, racconta origine e chiude con il punto vendita.',
     productLine: 'Classici / Duci Siculi',
@@ -86,7 +86,7 @@ const personas = {
     retailer: 'Bottega Sicula',
     location: 'Palermo · 2,1 km',
     narrator: 'La nostalgia entra come emozione e arriva a una scelta concreta.',
-    strategicHook: 'La nostalgia viene agganciata da una ricerca di autenticita siciliana.',
+    strategicHook: 'La nostalgia viene agganciata da una ricerca di autenticità siciliana.',
     chips: ['Sicilia', 'tradizione', 'local SEO'],
   },
   carmela: {
@@ -111,8 +111,8 @@ const personas = {
     cta: 'Richiedi kit punto vendita',
     retailer: 'Alimentari Carmela',
     location: 'Ragusa · retailer partner',
-    narrator: 'Per Carmela il valore non e trovare un negozio: e diventare il negozio trovato.',
-    strategicHook: 'La ricerca B2B porta a una pagina retailer che genera visibilita, contatti e sell-out.',
+    narrator: 'Per Carmela il valore non è trovare un negozio: è diventare il negozio trovato.',
+    strategicHook: 'La ricerca B2B porta a una pagina retailer che genera visibilità, contatti e sell-out.',
     chips: ['B2B', 'retail kit', 'vetrina'],
   },
 };
@@ -139,6 +139,15 @@ const googleLetters = `
 
 function currentPersona() {
   return personas[personaId];
+}
+
+function fakeProductPath(productLine) {
+  return productLine
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replaceAll(' / ', '-')
+    .replaceAll(' ', '-');
 }
 
 function enterDemo() {
@@ -318,7 +327,7 @@ function renderSerpPanel(persona) {
     : ['Store locator', 'Linea prodotto', 'Shop online'];
   const localPackTitle = isCarmela ? 'Retailer partner Tumminello' : 'Punti vendita Tumminello';
   const localPackSubtitle = isCarmela
-    ? 'Visibilita locale per chi entra nella rete retail'
+    ? 'Visibilità locale per chi entra nella rete retail'
     : 'Risultati vicino a te · Store Locator proposto';
   const localResultCopy = isCarmela
     ? 'Scheda negozio, assortimento, contatti e materiali vetrina collegati alla ricerca.'
@@ -345,7 +354,7 @@ function renderSerpPanel(persona) {
             <div class="favicon" style="background:${persona.color}">T</div>
             <div>
               <div class="ad-label"><span>Annuncio</span> biscottitumminello.it</div>
-              <div class="serp-url">https://www.biscottitumminello.it/${persona.productLine.toLowerCase().replaceAll(' ', '-')}</div>
+              <div class="serp-url">https://www.biscottitumminello.it/${fakeProductPath(persona.productLine)}</div>
             </div>
           </div>
           <div class="serp-title">${persona.serpTitle}</div>
@@ -450,7 +459,7 @@ function renderRetailerPanel() {
         <div class="retailer-logo">TUMMINELLO</div>
         <div class="retailer-nav">AREA RIVENDITORI</div>
         <div class="retailer-nav">CATALOGO B2B</div>
-        <div class="retailer-nav last">VISIBILITA RETAIL</div>
+        <div class="retailer-nav last">VISIBILITÀ RETAIL</div>
       </div>
 
       <section class="retailer-hero">
@@ -468,11 +477,11 @@ function renderRetailerPanel() {
         <article class="retailer-card highlighted">
           <span>Obiettivo</span>
           <strong>Diventare il negozio trovato</strong>
-          <p>Per Carmela il valore non e cercare un punto vendita: e ricevere traffico qualificato verso il suo.</p>
+          <p>Per Carmela il valore non è cercare un punto vendita: è ricevere traffico qualificato verso il suo.</p>
         </article>
         <article class="retailer-card">
           <span>Assortimento</span>
-          <strong>GraniSi, Buatte, Arca, Classici</strong>
+          <strong>GraniSì, Buatte, Arcà, Classici</strong>
           <p>Linee selezionate per vetrina, gifting e acquisto premium.</p>
         </article>
         <article class="retailer-card">
